@@ -11,28 +11,48 @@ import AboutPage from "./about/AboutPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/App.css";
 import Navbar from "react-bootstrap/esm/Navbar";
+import Logo from "../assets/logo.png";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 export default function App() {
   return (
     <Router>
       <Container fluid>
-      <Navbar bg="light" expand="lg">
-        BIG bar
-      </Navbar>
+        <Navbar>
+          <Navbar.Brand className="m-2">
+            <img src={Logo} width="10%" height="10%" alt="Logistics UKLogo" />
+          </Navbar.Brand>
+        </Navbar>
         <Row>
           <Col xs={2}>
-            <Nav className="col-md-12 d-none d-md-block bg-light">
+            <Nav className="col-md-12 d-none d-md-block">
               <Link to="/home">
-                <Nav.Item>Home</Nav.Item>
+                <Nav.Item>
+                  <ButtonGroup className="m-2">
+                    <Button>Home</Button>
+                  </ButtonGroup>
+                </Nav.Item>
               </Link>
               <Link to="/drivers">
-                <Nav.Item>Drivers</Nav.Item>
+                <Nav.Item>
+                  <ButtonGroup className="m-2">
+                    <Button>Driver</Button>
+                  </ButtonGroup>
+                </Nav.Item>
               </Link>
               <Link to="/vehicles">
-                <Nav.Item>Vehicles</Nav.Item>
+                <Nav.Item>
+                  <ButtonGroup className="m-2">
+                    <Button>Vehicles</Button>
+                  </ButtonGroup>
+                </Nav.Item>
               </Link>
               <Link to="/about">
-                <Nav.Item>About</Nav.Item>
+                <Nav.Item>
+                  <ButtonGroup className="m-2">
+                    <Button>About</Button>
+                  </ButtonGroup>
+                </Nav.Item>
               </Link>
             </Nav>
           </Col>
