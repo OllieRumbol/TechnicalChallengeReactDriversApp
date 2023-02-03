@@ -9,6 +9,7 @@ import DetailRowDriversName from "./DetailRowDriversName";
 import DetailRowVehicleRegistration from "./DetailRowVehicleRegistration";
 import { GetDrivers } from "../../backend/driversService";
 import { Driver } from "../../type.d";
+import Alert from "react-bootstrap/esm/Alert";
 
 export default function DetailRow() {
   const driversResult = GetDrivers();
@@ -51,7 +52,7 @@ export default function DetailRow() {
         </Col>
       </Row>
 
-      {drivers.map((driver: Driver, index: number) => {
+      {drivers.length > 0 ? drivers.map((driver: Driver, index: number) => {
         return (
           <Row>
             <Col xs={3}>
@@ -73,7 +74,7 @@ export default function DetailRow() {
             </Col>
           </Row>
         );
-      })}
+      }) : <Alert variant="danger">No results found</Alert>}
     </>
   );
 }
