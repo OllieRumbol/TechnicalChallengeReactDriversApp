@@ -2,17 +2,18 @@ import React from "react";
 import { HashRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
+import Button from "react-bootstrap/esm/Button";
+import ButtonGroup from "react-bootstrap/esm/ButtonGroup";
 import Nav from "react-bootstrap/esm/Nav";
+import Navbar from "react-bootstrap/esm/Navbar";
 import Row from "react-bootstrap/esm/Row";
 import HomePage from "./home/HomePage";
 import DriversPage from "./drivers/DriversPage";
 import VehiclePage from "./vehicles/VehiclePage";
 import AboutPage from "./about/AboutPage";
+import Logo from "../assets/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/App.css";
-import Navbar from "react-bootstrap/esm/Navbar";
-import Logo from "../assets/logo.png";
-import { Button, ButtonGroup } from "react-bootstrap";
 
 export default function App() {
   return (

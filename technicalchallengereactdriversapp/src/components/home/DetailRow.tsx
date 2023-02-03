@@ -21,6 +21,14 @@ export default function DetailRow() {
           </InputGroup>
         </Col>
       </Row>
+      <Row>
+        <Col xs={3}></Col>
+        <Col xs={2}></Col>
+        <Col xs={3}></Col>
+        <Col xs={4}>
+          <DetailRowActivityDurationWeekly weekDuration={[]} isTittle={true} />
+        </Col>
+      </Row>
 
       {GetDrivers().map((driver: Driver, index: number) => {
         return (
@@ -37,8 +45,9 @@ export default function DetailRow() {
               <DetailRowActivityDuration duration={driver.total} />
             </Col>
             <Col xs={4}>
-              <DetailRowActivityDurationWeekly 
+              <DetailRowActivityDurationWeekly
                 weekDuration={driver.weekDuration}
+                isTittle={false}
               />
             </Col>
           </Row>
