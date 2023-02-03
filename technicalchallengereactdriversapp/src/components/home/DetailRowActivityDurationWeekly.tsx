@@ -1,15 +1,25 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import "../../style/DetailRowActivityDurationWeekly.css";
 import { Duration } from "../../type.d";
+import DetailRowActivityDurationWeeklyButton from "./DetailRowActivityDurationWeeklyButton";
 
 type DetailRowActivityDurationWeeklyProps = {
   weekDuration: Duration[];
-  isTittle: boolean
+  isTittle: boolean;
 };
 
 export default function DetailRowActivityDurationWeekly(
   props: DetailRowActivityDurationWeeklyProps
 ) {
+  const monday = props.weekDuration.find((w) => w.day === 1);
+  const tuesday = props.weekDuration.find((w) => w.day === 2);
+  const wednesday = props.weekDuration.find((w) => w.day === 3);
+  const thursday = props.weekDuration.find((w) => w.day === 4);
+  const friday = props.weekDuration.find((w) => w.day === 5);
+  const saturday = props.weekDuration.find((w) => w.day === 6);
+  const sunday = props.weekDuration.find((w) => w.day === 0);
+
   if (props.isTittle) {
     return (
       <>
@@ -17,25 +27,25 @@ export default function DetailRowActivityDurationWeekly(
           <table>
             <tr>
               <td>
-              <div className="square text-center">Mon</div>
+                <div className="square text-center">Mon</div>
               </td>
               <td>
-              <div className="square text-center">Tue</div>
+                <div className="square text-center">Tue</div>
               </td>
               <td>
-              <div className="square text-center">Wed</div>
+                <div className="square text-center">Wed</div>
               </td>
               <td>
-              <div className="square text-center">Thu</div>
+                <div className="square text-center">Thu</div>
               </td>
               <td>
-              <div className="square text-center">Fri</div>
+                <div className="square text-center">Fri</div>
               </td>
               <td>
-              <div className="square text-center">Sat</div>
+                <div className="square text-center">Sat</div>
               </td>
               <td>
-              <div className="square text-center">Sun</div>
+                <div className="square text-center">Sun</div>
               </td>
             </tr>
           </table>
@@ -49,50 +59,50 @@ export default function DetailRowActivityDurationWeekly(
           <table>
             <tr>
               <td>
-                {props.weekDuration.find((w) => w.day === 1) ? (
-                  <div className="square border green"></div>
+                {monday != undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={monday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 2) ? (
-                  <div className="square border green"></div>
+                {tuesday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={tuesday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 3) ? (
-                  <div className="square border green"></div>
+                {wednesday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={wednesday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 4) ? (
-                  <div className="square border green"></div>
+                {thursday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={thursday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 5) ? (
-                  <div className="square border green"></div>
+                {friday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={friday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 6) ? (
-                  <div className="square border green"></div>
+                {saturday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={saturday} />
                 ) : (
                   <div className="square border"></div>
                 )}
               </td>
               <td>
-                {props.weekDuration.find((w) => w.day === 0) ? (
-                  <div className="square border green"></div>
+                {sunday !== undefined ? (
+                  <DetailRowActivityDurationWeeklyButton duration={sunday} />
                 ) : (
                   <div className="square border"></div>
                 )}

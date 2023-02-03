@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Form from "react-bootstrap/esm/Form";
 import InputGroup from "react-bootstrap/esm/InputGroup";
@@ -11,13 +11,34 @@ import { GetDrivers } from "../../backend/driversService";
 import { Driver } from "../../type.d";
 
 export default function DetailRow() {
+  const driversResult = GetDrivers();
+  const [search, setSearch] = useState("");
+  const [drivers, setDrivers] = useState(driversResult);
+
+  function updateSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(e.target.value);
+  }
+
+  useEffect(() => {
+    if (search !== "") {
+      console.log("Hello");
+      setDrivers(drivers.filter((d) => d.name.includes(search)));
+    }
+    else{
+      setDrivers(driversResult);
+    }
+  }, [search]);
+
   return (
     <>
       <Row>
         <Col>
           <InputGroup className="mb-3">
             <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
-            <Form.Control aria-describedby="basic-addon1" />
+            <Form.Control
+              aria-describedby="basic-addon1"
+              onChange={updateSearch}
+            />
           </InputGroup>
         </Col>
       </Row>
@@ -30,7 +51,7 @@ export default function DetailRow() {
         </Col>
       </Row>
 
-      {GetDrivers().map((driver: Driver, index: number) => {
+      {drivers.map((driver: Driver, index: number) => {
         return (
           <Row>
             <Col xs={3}>
@@ -42,7 +63,7 @@ export default function DetailRow() {
               />
             </Col>
             <Col xs={3}>
-              <DetailRowActivityDuration duration={driver.total} />
+              <DetailRowActivityDuration duration={driver.totalDurationForWeek} />
             </Col>
             <Col xs={4}>
               <DetailRowActivityDurationWeekly
