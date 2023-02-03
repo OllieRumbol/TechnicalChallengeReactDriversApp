@@ -13,7 +13,6 @@ import VehiclePage from "./vehicles/VehiclePage";
 import AboutPage from "./about/AboutPage";
 import Logo from "../assets/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../style/App.css";
 
 export default function App() {
   return (

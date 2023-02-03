@@ -1,8 +1,7 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import "../../style/DetailRowActivityDurationWeekly.css";
-import { Duration } from "../../type.d";
 import DetailRowActivityDurationWeeklyButton from "./DetailRowActivityDurationWeeklyButton";
+import { Duration } from "../../type.d";
+import "../../style/DetailRowActivityDurationWeekly.css";
 
 type DetailRowActivityDurationWeeklyProps = {
   weekDuration: Duration[];

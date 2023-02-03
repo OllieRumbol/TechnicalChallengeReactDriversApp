@@ -6,14 +6,14 @@ import Popover from "react-bootstrap/esm/Popover";
 import { Duration } from "../../type.d";
 
 type DetailRowActivityDurationWeeklyButtonProps = {
-    duration: Duration
-}
+  duration: Duration;
+};
 
-export default function DetailRowActivityDurationWeeklyButton(props: DetailRowActivityDurationWeeklyButtonProps) {
+export default function DetailRowActivityDurationWeeklyButton(
+  props: DetailRowActivityDurationWeeklyButtonProps
+) {
   const [show, setShow] = useState(false);
   const target = useRef(null);
-console.log(props.duration);
-
 
   return (
     <>
@@ -28,10 +28,18 @@ console.log(props.duration);
           <Popover.Header as="h3">Break down of time</Popover.Header>
           <Popover.Body>
             <ListGroup>
-              <ListGroup.Item>Available: {props.duration.numberOfMinutesAvailable}</ListGroup.Item>
-              <ListGroup.Item>Drive: {props.duration.numberOfMinutesDrive}</ListGroup.Item>
-              <ListGroup.Item>Rest: {props.duration.numberOfMinutesRest}</ListGroup.Item>
-              <ListGroup.Item>Work: {props.duration.numberOfMinutesWork}</ListGroup.Item>
+              <ListGroup.Item>
+                Available: {props.duration.numberOfMinutesAvailable}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Drive: {props.duration.numberOfMinutesDrive}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Rest: {props.duration.numberOfMinutesRest}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Work: {props.duration.numberOfMinutesWork}
+              </ListGroup.Item>
             </ListGroup>
           </Popover.Body>
         </Popover>

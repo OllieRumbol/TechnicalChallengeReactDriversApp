@@ -24,11 +24,10 @@ export default function DetailRow() {
     if (search !== "") {
       console.log("Hello");
       setDrivers(drivers.filter((d) => d.name.includes(search)));
-    }
-    else{
+    } else {
       setDrivers(driversResult);
     }
-  }, [search]);
+  }, [search, drivers, driversResult]);
 
   return (
     <>
@@ -43,7 +42,7 @@ export default function DetailRow() {
           </InputGroup>
         </Col>
       </Row>
-      <Row>
+      <Row xs={12}>
         <Col xs={3}></Col>
         <Col xs={2}></Col>
         <Col xs={3}></Col>
@@ -52,29 +51,35 @@ export default function DetailRow() {
         </Col>
       </Row>
 
-      {drivers.length > 0 ? drivers.map((driver: Driver, index: number) => {
-        return (
-          <Row>
-            <Col xs={3}>
-              <DetailRowDriversName name={driver.name} />
-            </Col>
-            <Col xs={2}>
-              <DetailRowVehicleRegistration
-                registration={driver.registration}
-              />
-            </Col>
-            <Col xs={3}>
-              <DetailRowActivityDuration duration={driver.totalDurationForWeek} />
-            </Col>
-            <Col xs={4}>
-              <DetailRowActivityDurationWeekly
-                weekDuration={driver.weekDuration}
-                isTittle={false}
-              />
-            </Col>
-          </Row>
-        );
-      }) : <Alert variant="danger">No results found</Alert>}
+      {drivers.length > 0 ? (
+        drivers.map((driver: Driver, index: number) => {
+          return (
+            <Row>
+              <Col xs={3}>
+                <DetailRowDriversName name={driver.name} />
+              </Col>
+              <Col xs={2}>
+                <DetailRowVehicleRegistration
+                  registration={driver.registration}
+                />
+              </Col>
+              <Col xs={3}>
+                <DetailRowActivityDuration
+                  duration={driver.totalDurationForWeek}
+                />
+              </Col>
+              <Col xs={4}>
+                <DetailRowActivityDurationWeekly
+                  weekDuration={driver.weekDuration}
+                  isTittle={false}
+                />
+              </Col>
+            </Row>
+          );
+        })
+      ) : (
+        <Alert variant="danger">No results found</Alert>
+      )}
     </>
   );
 }

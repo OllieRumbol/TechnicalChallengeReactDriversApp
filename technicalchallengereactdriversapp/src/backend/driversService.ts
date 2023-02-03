@@ -13,7 +13,10 @@ const GetDrivers = () => {
       durations.push({
         date: trace.date,
         day: new Date(trace.date).getDay(),
-        numberOfMinutes: trace.activity.reduce((sum, current) => sum + current.duration, 0),
+        numberOfMinutes: trace.activity.reduce(
+          (sum, current) => sum + current.duration,
+          0
+        ),
         numberOfMinutesAvailable: trace.activity
           .filter((item) => item.type === "available")
           .reduce((sum, current) => sum + current.duration, 0),
